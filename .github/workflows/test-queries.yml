@@ -83,3 +83,8 @@ jobs:
 
       - name: Check query files
         run: $NVIM --headless -c "luafile ./scripts/check-queries.lua" -c "q"
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: parsers-${{ matrix.os }}-${{ matrix.cc }}-x86_64
+          path: parser/*
